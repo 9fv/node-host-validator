@@ -1,0 +1,17 @@
+{
+  "TEST_HOSTS":
+  {
+    "ipv4": {
+      "OK": "172.17.0.111",
+      "KO": "256.512.1024.2048"
+    },
+    "hostname": {
+      "OK": "domain.tld",
+      "KO": "mydomain@foo"
+    },
+    "ipv6": {
+      "OK": "2001:0db8:0000:85a3:0000:0000:ac1f:8001 ",
+      "KO": "cow:beef:surprise:meurk:0000:0000:ac1f:sausage"
+    }
+  }
+}
