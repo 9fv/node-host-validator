@@ -12,9 +12,19 @@ const {itLoop} = require('./unit-tests-helper');
 const {HostValidator} = require('../lib/host-validator');
 const {TEST_HOSTS} = require('./resources');
 
-describe('Class named <HostValidator>', () => {
+describe('Class named {HostValidator}', () => {
   it('should be a function', () => {
     (HostValidator).should.be.a.Function();
+  });
+});
+
+describe('Instantiate a {HostValidator}', () => {
+  it('passing a {null} value should throw a {TypeError}', () => {
+    (() => {new HostValidator(null) }).should.throw(TypeError);
+  });
+
+  it('passing an {object} value should throw a {TypeError}', () => {
+    (() => {new HostValidator({}) }).should.throw(TypeError);
   });
 });
 
