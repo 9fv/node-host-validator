@@ -51,7 +51,7 @@ Object.keys(TEST_HOSTS).forEach((hostType) => {
         label: `should be {HostValidator} when passing a valid ${item.toLowerCase()}`,
         test: () => {
           const hostValidator = new HostValidator(TEST_HOSTS[item].OK);
-          return (hostValidator[hostType].apply(hostValidator)).should.be.an.instanceOf(HostValidator)
+          return (() => { return hostValidator[hostType].apply(hostValidator); }).should.be.an.instanceOf(HostValidator)
         }
       }
     },
