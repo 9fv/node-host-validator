@@ -1,6 +1,6 @@
 {
   "name": "host-validator",
-  "version": "0.1.0-alpha1",
+  "version": "0.1.0-alpha2",
   "description": "A host (or hostname) formatting validator.",
   "main": "lib/index.js",
   "directories": {
