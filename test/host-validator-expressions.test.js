@@ -45,3 +45,17 @@ describe('List of validators', () => {
     }
   });
 });
+
+describe('Get validator named ', () => {
+  it('<ipv4> should return an instance of {RegExp}', () => {
+    (HostValidatorExpressions.get('ipv4')).should.be.instanceOf(RegExp);
+  });
+
+  it('<ipv6> should return an instance of {RegExp}', () => {
+    (HostValidatorExpressions.get('ipv6')).should.be.instanceOf(RegExp);
+  });
+
+  it('<hostnameRFC1123> should return an instance of {RegExp}', () => {
+    (HostValidatorExpressions.get('hostnameRFC1123')).should.be.instanceOf(RegExp);
+  });
+});
