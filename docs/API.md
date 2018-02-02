@@ -93,6 +93,8 @@ Returns regular expression to validate a hostname (RFC 1123).
 <a name="new_HostValidator_new"></a>
 
 ### new HostValidator(value, type)
+Create a new instance of {HostValidator}.
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -123,6 +125,7 @@ Set host type as a hostname (RFC 1123).
 Validate the host formatting.
 
 **Kind**: instance method of [<code>HostValidator</code>](#HostValidator)  
+**Returns**: <code>boolean</code> - True if the host formatting is correct. False else.  
 <a name="HostValidator+determinate"></a>
 
 ### hostValidator.determinate() ⇒ <code>boolean</code>
@@ -151,21 +154,32 @@ A host validator returning promise.
 
 * [PromisifiedHostValidator](#PromisifiedHostValidator) ⇐ [<code>HostValidator</code>](#HostValidator)
     * [new PromisifiedHostValidator(value, type)](#new_PromisifiedHostValidator_new)
+    * [.validate()](#PromisifiedHostValidator+validate) ⇒ [<code>Promise.&lt;PromisifiedHostValidator&gt;</code>](#PromisifiedHostValidator)
     * [.ipv4()](#HostValidator+ipv4) ⇒ [<code>HostValidator</code>](#HostValidator)
     * [.ipv6()](#HostValidator+ipv6) ⇒ [<code>HostValidator</code>](#HostValidator)
     * [.hostnameRFC1123()](#HostValidator+hostnameRFC1123) ⇒ [<code>HostValidator</code>](#HostValidator)
-    * [.validate()](#HostValidator+validate) ⇒ <code>boolean</code>
     * [.determinate()](#HostValidator+determinate) ⇒ <code>boolean</code>
 
 <a name="new_PromisifiedHostValidator_new"></a>
 
 ### new PromisifiedHostValidator(value, type)
+Create a new instance of {PromisifiedHostValidator}.
 
-| Param |
-| --- |
-| value | 
-| type | 
 
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | A host: an IPv4 address, an IPv6 address or a hostname. |
+| type | <code>null</code> \| <code>HostType</code> | An optional host type. |
+
+<a name="PromisifiedHostValidator+validate"></a>
+
+### promisifiedHostValidator.validate() ⇒ [<code>Promise.&lt;PromisifiedHostValidator&gt;</code>](#PromisifiedHostValidator)
+Validate the host formatting.
+
+**Kind**: instance method of [<code>PromisifiedHostValidator</code>](#PromisifiedHostValidator)  
+**Overrides**: [<code>validate</code>](#HostValidator+validate)  
+**Returns**: [<code>Promise.&lt;PromisifiedHostValidator&gt;</code>](#PromisifiedHostValidator) - The {PromisifiedHostValidator} instance if the host formatting is correct.
+  On error the promise will be rejected with a {TypeError}.  
 <a name="HostValidator+ipv4"></a>
 
 ### promisifiedHostValidator.ipv4() ⇒ [<code>HostValidator</code>](#HostValidator)
@@ -184,13 +198,6 @@ Set host type as IPv6.
 Set host type as a hostname (RFC 1123).
 
 **Kind**: instance method of [<code>PromisifiedHostValidator</code>](#PromisifiedHostValidator)  
-<a name="HostValidator+validate"></a>
-
-### promisifiedHostValidator.validate() ⇒ <code>boolean</code>
-Validate the host formatting.
-
-**Kind**: instance method of [<code>PromisifiedHostValidator</code>](#PromisifiedHostValidator)  
-**Overrides**: [<code>validate</code>](#HostValidator+validate)  
 <a name="HostValidator+determinate"></a>
 
 ### promisifiedHostValidator.determinate() ⇒ <code>boolean</code>

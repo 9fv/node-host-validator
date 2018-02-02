@@ -2,12 +2,12 @@
 [npm-badge-url]: https://www.npmjs.com/package/host-validator
 [npm-downloads-badge]: https://img.shields.io/npm/dt/host-validator.svg
 [npm-downloads-url]: https://npmjs.org/package/host-validator
-[travis-badge]: https://img.shields.io/travis/9fv/node-host-validator/v0.1.0-alpha1.svg?label=TravisCI
+[travis-badge]: https://img.shields.io/travis/9fv/node-host-validator/v0.1.0-alpha2.svg?label=TravisCI
 [travis-badge-url]: https://travis-ci.org/9fv/node-host-validator
-[circle-badge]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-alpha1.svg?style=svg&circle-token=
-[circle-badge-url]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-alpha1
-[coveralls-badge]: https://coveralls.io/repos/github/9fv/node-host-validator/badge.svg?branch=v0.1.0-alpha1
-[coveralls-badge-url]: https://coveralls.io/github/9fv/node-host-validator?branch=v0.1.0-alpha1
+[circle-badge]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-alpha2.svg?style=svg&circle-token=
+[circle-badge-url]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-alpha2
+[coveralls-badge]: https://coveralls.io/repos/github/9fv/node-host-validator/badge.svg?branch=v0.1.0-alpha2
+[coveralls-badge-url]: https://coveralls.io/github/9fv/node-host-validator?branch=v0.1.0-alpha2
 [codeclimate-badge]: https://img.shields.io/codeclimate/github/9fv/node-host-validator.svg
 [codeclimate-badge-url]: https://codeclimate.com/github/9fv/node-host-validator
 [ember-observer-badge]: http://emberobserver.com/badges/node-host-validator.svg
@@ -72,7 +72,7 @@ A host formatting validator.
    host('[2001:0db8:0a0b:12f0:0000:0000:0000:0001]').ipv6().validate(); # true -> host is valid.
    host('foo').ipv6().validate(); # false -> host is invalid.
 
-   # Validate a hostname (RFC )
+   # Validate a hostname (RFC 1123)
    host('').hostname().validate(); # true -> host is valid.
    host('[2001:0db8:0a0b:12f0:0000:0000:0000:0001]').hostname().validate(); # true -> host is valid.
    host('foo').ipv6().validate(); # false -> host is invalid.
@@ -125,15 +125,10 @@ Please refer to project's style guidelines and guidelines for submitting patches
 
 ## <a name="history"> History
 
-### v0.1.0 (2018-01-29)
+### v0.1.0-alpha2 (2018-02-02)
 
-* Add unit tests and improve code coverage.
 
-### v0.1.0-beta2 (2018-01-29)
-
-Code refactoring for better testability and simplified usage.
-
-### v0.1.0-alpha1 (2018-01-28)
+### v0.1.0-alpha1 (2018-02-02)
 
 Initial version.
 
