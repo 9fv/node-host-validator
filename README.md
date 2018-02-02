@@ -121,11 +121,18 @@ Please refer to project's style guidelines and guidelines for submitting patches
 
 ## <a name="credits"> Credits
 
-* Inspired by the [Stackoverflow answer](https://stackoverflow.com/a/26694802) of [Benjamin Gruenbaum](https://stackoverflow.com/users/1348195/benjamin-gruenbaum). It is thanks to him that this project exists.
+Thanks to:
+
+* [Daniel](https://stackoverflow.com/users/901249/daniel) for the useful regular expressions. See his [Stackoverflow answer](https://stackoverflow.com/a/9221063)
+about how to [validate IPv4, IPv6 and hostname](https://stackoverflow.com/questions/9208814/validate-ipv4-ipv6-and-hostname).
+
 
 ## <a name="history"> History
 
 ### v0.1.0-alpha2 (2018-02-02)
+
+* Fix errors and update documentation (API, README).
+* Improve code coverage.
 
 
 ### v0.1.0-alpha1 (2018-02-02)
