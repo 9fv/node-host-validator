@@ -9,18 +9,25 @@
 
 const should = require('should'); // eslint-disable-line no-unused-vars
 const {itLoop} = require('./unit-tests-helper');
-const {HostValidator} = require('../lib/host-validator');
+const {HostValidator, hostValidator} = require('../lib/host-validator');
+const {HostValidatorExpressions} = require('../lib/host-validator-expressions');
 const {TEST_HOSTS} = require('./resources');
-
-const mocha = require('mocha')
-
-console.log(mocha)
 
 describe('Class named {HostValidator}', () => {
   it('should be a function', () => {
     (HostValidator).should.be.a.Function();
   });
 });
+
+describe('Factory function named {hostValidator}', () => {
+  it('should be a function', () => {
+    (hostValidator).should.be.a.Function();
+  });
+  it('should return an instance of {HostValidator} when calling', () => {
+    (hostValidator(TEST_HOSTS.ipv4.OK)).should.be.an.instanceOf(HostValidator);
+  });
+});
+
 
 describe('Instantiate a {HostValidator}', () => {
   it('passing a {null} value should throw a {TypeError}', () => {
@@ -60,9 +67,9 @@ Object.keys(TEST_HOSTS).forEach((hostType) => {
         return {
           label: `should be {HostValidator} when passing a valid ${item.toLowerCase()}`,
           test: () => {
-            const hostValidator = new HostValidator(TEST_HOSTS[item].OK);
+            const v = new HostValidator(TEST_HOSTS[item].OK);
             return (() => {
-              return hostValidator[hostType].apply(hostValidator);
+              return v[hostType].apply(v);
             }).should.be.an.instanceOf(HostValidator)
           }
         }
@@ -71,14 +78,13 @@ Object.keys(TEST_HOSTS).forEach((hostType) => {
         return {
           label: `should be {HostValidator} when passing an invalid ${item.toLowerCase()}`,
           test: () => {
-            const hostValidator = new HostValidator(TEST_HOSTS[item].KO);
-            return (hostValidator[hostType].apply(hostValidator)).should.be.an.instanceOf(HostValidator)
+            const v = new HostValidator(TEST_HOSTS[item].KO);
+            return (v[hostType].apply(v)).should.be.an.instanceOf(HostValidator)
           }
         }
       },
     ]));
 });
-
 
 Object.keys(TEST_HOSTS).forEach((hostType) => {
   describe(`Validation using type ${hostType}`,
@@ -87,8 +93,8 @@ Object.keys(TEST_HOSTS).forEach((hostType) => {
         return {
           label: hostType === item ? `should be {true} when passing a valid ${item}` : `should be {false} when passing a valid ${item}`,
           test: () => {
-            const hostValidator = new HostValidator(TEST_HOSTS[item].OK);
-            const result = hostValidator[hostType].apply(hostValidator).validate();
+            const v = new HostValidator(TEST_HOSTS[item].OK);
+            const result = v[hostType].apply(v).validate();
             if (hostType === item) {
               return (result).should.be.true();
             } else {
@@ -101,8 +107,8 @@ Object.keys(TEST_HOSTS).forEach((hostType) => {
         return {
           label: hostType === item ? `should be {true} when passing an invalid ${item}` : `should be {false} when passing an invalid ${item}`,
           test: () => {
-            const hostValidator = new HostValidator(TEST_HOSTS[item].KO);
-            const result = hostValidator[hostType].apply(hostValidator).validate();
+            const v = new HostValidator(TEST_HOSTS[item].KO);
+            const result = v[hostType].apply(v).validate();
             if (hostType === item) {
               return (result).should.be.true();
             } else {
@@ -112,4 +118,24 @@ Object.keys(TEST_HOSTS).forEach((hostType) => {
         }
       }
     ]));
+});
+
+Object.keys(TEST_HOSTS).forEach((hostType) => {
+  describe(`Determinate type of ${hostType}`,
+    itLoop(Object.keys(TEST_HOSTS), [
+      (item) => {
+        return {
+          label: hostType === item ? `should be {true} when passing a valid ${item}` : `should be {false} when passing a valid ${item}`,
+          test: () => {
+            const v = new HostValidator(TEST_HOSTS[item].OK);
+            const result = v[hostType].apply(v).determinate();
+            //if (hostType === item) {
+            return (result.validator).should.be.equals(hostType);
+            //} else {
+            //return (result).should.be.false();
+            //}
+          }
+        }
+      },
+    ]))
 });
