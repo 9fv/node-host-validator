@@ -11,9 +11,6 @@
 <dt><a href="#HostValidator">HostValidator</a></dt>
 <dd><p>{HostValidator} class.</p>
 </dd>
-<dt><a href="#PromisifiedHostValidator">PromisifiedHostValidator</a> ⇐ <code><a href="#HostValidator">HostValidator</a></code></dt>
-<dd><p>A host validator returning promise.</p>
-</dd>
 </dl>
 
 ## Constants
@@ -144,66 +141,6 @@ Validate host for the passed type.
 | hostValue | <code>string</code> | 
 | hostType | <code>string</code> | 
 
-<a name="PromisifiedHostValidator"></a>
-
-## PromisifiedHostValidator ⇐ [<code>HostValidator</code>](#HostValidator)
-A host validator returning promise.
-
-**Kind**: global class  
-**Extends**: [<code>HostValidator</code>](#HostValidator)  
-
-* [PromisifiedHostValidator](#PromisifiedHostValidator) ⇐ [<code>HostValidator</code>](#HostValidator)
-    * [new PromisifiedHostValidator(value, type)](#new_PromisifiedHostValidator_new)
-    * [.validate()](#PromisifiedHostValidator+validate) ⇒ [<code>Promise.&lt;PromisifiedHostValidator&gt;</code>](#PromisifiedHostValidator)
-    * [.ipv4()](#HostValidator+ipv4) ⇒ [<code>HostValidator</code>](#HostValidator)
-    * [.ipv6()](#HostValidator+ipv6) ⇒ [<code>HostValidator</code>](#HostValidator)
-    * [.hostnameRFC1123()](#HostValidator+hostnameRFC1123) ⇒ [<code>HostValidator</code>](#HostValidator)
-    * [.determinate()](#HostValidator+determinate) ⇒ <code>boolean</code>
-
-<a name="new_PromisifiedHostValidator_new"></a>
-
-### new PromisifiedHostValidator(value, type)
-Create a new instance of {PromisifiedHostValidator}.
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| value | <code>string</code> | A host: an IPv4 address, an IPv6 address or a hostname. |
-| type | <code>null</code> \| <code>HostType</code> | An optional host type. |
-
-<a name="PromisifiedHostValidator+validate"></a>
-
-### promisifiedHostValidator.validate() ⇒ [<code>Promise.&lt;PromisifiedHostValidator&gt;</code>](#PromisifiedHostValidator)
-Validate the host formatting.
-
-**Kind**: instance method of [<code>PromisifiedHostValidator</code>](#PromisifiedHostValidator)  
-**Overrides**: [<code>validate</code>](#HostValidator+validate)  
-**Returns**: [<code>Promise.&lt;PromisifiedHostValidator&gt;</code>](#PromisifiedHostValidator) - The {PromisifiedHostValidator} instance if the host formatting is correct.
-  On error the promise will be rejected with a {TypeError}.  
-<a name="HostValidator+ipv4"></a>
-
-### promisifiedHostValidator.ipv4() ⇒ [<code>HostValidator</code>](#HostValidator)
-Set host type as IPv4.
-
-**Kind**: instance method of [<code>PromisifiedHostValidator</code>](#PromisifiedHostValidator)  
-<a name="HostValidator+ipv6"></a>
-
-### promisifiedHostValidator.ipv6() ⇒ [<code>HostValidator</code>](#HostValidator)
-Set host type as IPv6.
-
-**Kind**: instance method of [<code>PromisifiedHostValidator</code>](#PromisifiedHostValidator)  
-<a name="HostValidator+hostnameRFC1123"></a>
-
-### promisifiedHostValidator.hostnameRFC1123() ⇒ [<code>HostValidator</code>](#HostValidator)
-Set host type as a hostname (RFC 1123).
-
-**Kind**: instance method of [<code>PromisifiedHostValidator</code>](#PromisifiedHostValidator)  
-<a name="HostValidator+determinate"></a>
-
-### promisifiedHostValidator.determinate() ⇒ <code>boolean</code>
-Determinate type of host if not provided.
-
-**Kind**: instance method of [<code>PromisifiedHostValidator</code>](#PromisifiedHostValidator)  
 <a name="_"></a>
 
 ## _
