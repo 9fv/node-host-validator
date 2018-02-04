@@ -9,8 +9,8 @@
 
 const _ = require('lodash');
 
-function itLoop(description, arr = [], fns = []) {
-  describe(description, () => {
+function itLoop(arr = [], fns = []) {
+  return () => {
     arr.forEach((item) => {
       for (let i = 0; i < fns.length; i += 1) {
         const fn = fns[i](item);
@@ -30,35 +30,8 @@ function itLoop(description, arr = [], fns = []) {
         it(label, func.call());
       }
     });
-  });
-}
-
-function itLoopForPromise(description, arr = [], fns = []) {
-  describe(description, () => {
-    arr.forEach((item) => {
-      for (let i = 0; i < fns.length; i += 1) {
-        const fn = fns[i](item);
-        const {label, test} = fn;
-        let func;
-        if ((_.isObject(test) === true)) {
-          func = () => {
-            return () => {
-              return test;
-            }
-          }
-        } else {
-          func = () => {
-            return () => {
-              return test.call();
-            }
-          };
-        }
-        it(label, func.call());
-      }
-    });
-  });
+  }
 }
 
 module.exports = {};
 module.exports.itLoop = itLoop;
-module.exports.itLoopForPromise = itLoopForPromise;
