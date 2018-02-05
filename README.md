@@ -2,12 +2,12 @@
 [npm-badge-url]: https://www.npmjs.com/package/host-validator
 [npm-downloads-badge]: https://img.shields.io/npm/dt/host-validator.svg
 [npm-downloads-url]: https://npmjs.org/package/host-validator
-[travis-badge]: https://img.shields.io/travis/9fv/node-host-validator/v0.1.0-beta1.svg?label=TravisCI
+[travis-badge]: https://img.shields.io/travis/9fv/node-host-validator/master.svg?label=TravisCI
 [travis-badge-url]: https://travis-ci.org/9fv/node-host-validator
-[circle-badge]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-beta1.svg?style=svg&circle-token=
-[circle-badge-url]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-beta1
-[coveralls-badge]: https://coveralls.io/repos/github/9fv/node-host-validator/badge.svg?branch=v0.1.0-beta1
-[coveralls-badge-url]: https://coveralls.io/github/9fv/node-host-validator?branch=v0.1.0-beta1
+[circle-badge]: https://circleci.com/gh/9fv/node-host-validator/tree/master.svg?style=svg&circle-token=
+[circle-badge-url]: https://circleci.com/gh/9fv/node-host-validator/tree/master
+[coveralls-badge]: https://coveralls.io/repos/github/9fv/node-host-validator/badge.svg?branch=master
+[coveralls-badge-url]: https://coveralls.io/github/9fv/node-host-validator?branch=master
 [codeclimate-badge]: https://img.shields.io/codeclimate/github/9fv/node-host-validator.svg
 [codeclimate-badge-url]: https://codeclimate.com/github/9fv/node-host-validator
 [ember-observer-badge]: http://emberobserver.com/badges/node-host-validator.svg
