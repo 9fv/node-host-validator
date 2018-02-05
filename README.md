@@ -2,12 +2,12 @@
 [npm-badge-url]: https://www.npmjs.com/package/host-validator
 [npm-downloads-badge]: https://img.shields.io/npm/dt/host-validator.svg
 [npm-downloads-url]: https://npmjs.org/package/host-validator
-[travis-badge]: https://img.shields.io/travis/9fv/node-host-validator/v0.1.0-alpha2.svg?label=TravisCI
+[travis-badge]: https://img.shields.io/travis/9fv/node-host-validator/v0.1.0-beta1.svg?label=TravisCI
 [travis-badge-url]: https://travis-ci.org/9fv/node-host-validator
-[circle-badge]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-alpha2.svg?style=svg&circle-token=
-[circle-badge-url]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-alpha2
-[coveralls-badge]: https://coveralls.io/repos/github/9fv/node-host-validator/badge.svg?branch=v0.1.0-alpha2
-[coveralls-badge-url]: https://coveralls.io/github/9fv/node-host-validator?branch=v0.1.0-alpha2
+[circle-badge]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-beta1.svg?style=svg&circle-token=
+[circle-badge-url]: https://circleci.com/gh/9fv/node-host-validator/tree/v0.1.0-beta1
+[coveralls-badge]: https://coveralls.io/repos/github/9fv/node-host-validator/badge.svg?branch=v0.1.0-beta1
+[coveralls-badge-url]: https://coveralls.io/github/9fv/node-host-validator?branch=v0.1.0-beta1
 [codeclimate-badge]: https://img.shields.io/codeclimate/github/9fv/node-host-validator.svg
 [codeclimate-badge-url]: https://codeclimate.com/github/9fv/node-host-validator
 [ember-observer-badge]: http://emberobserver.com/badges/node-host-validator.svg
@@ -22,7 +22,7 @@
 [greenkeeper-badge-url]: https://greenkeeper.io/
 
 
-host-validator
+node-host-validator
 ====================
 
 [![Latest NPM release][npm-badge]][npm-badge-url]
@@ -34,8 +34,6 @@ host-validator
 [![Dependencies][dependencies-badge]][dependencies-badge-url] 
 [![Dev Dependencies][devDependencies-badge]][devDependencies-badge-url]
 [![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
-
-**Warning !** Work in progress...
 
 ## Table of Contents
 
@@ -128,6 +126,12 @@ about how to [validate IPv4, IPv6 and hostname](https://stackoverflow.com/questi
 
 
 ## <a name="history"> History
+
+### v0.1.0-beta1 (2018-02-02)
+
+* Fix errors and update documentation (API, README).
+* Improve code coverage.
+* Remove extended class to use with `{Promise}` (in the future, promisified host-validator will be included in another package).
 
 ### v0.1.0-alpha2 (2018-02-02)
 
