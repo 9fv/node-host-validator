@@ -86,56 +86,69 @@ Object.keys(TEST_HOSTS).forEach((hostType) => {
     ]));
 });
 
-Object.keys(TEST_HOSTS).forEach((hostType) => {
-  describe(`Validation using type ${hostType}`,
-    itLoop(Object.keys(TEST_HOSTS), [
-      (item) => {
-        return {
-          label: hostType === item ? `should be {true} when passing a valid ${item}` : `should be {false} when passing a valid ${item}`,
-          test: () => {
-            const v = new HostValidator(TEST_HOSTS[item].OK);
-            const result = v[hostType].apply(v).validate();
-            if (hostType === item) {
-              return (result).should.be.true();
-            } else {
-              return (result).should.be.false();
-            }
-          }
-        }
-      },
-      (item) => {
-        return {
-          label: hostType === item ? `should be {true} when passing an invalid ${item}` : `should be {false} when passing an invalid ${item}`,
-          test: () => {
-            const v = new HostValidator(TEST_HOSTS[item].KO);
-            const result = v[hostType].apply(v).validate();
-            if (hostType === item) {
-              return (result).should.be.true();
-            } else {
-              return (result).should.be.false();
-            }
-          }
-        }
-      }
-    ]));
+describe('Validate host using specified validator: ', () => {
+  it('valid ipv4 should return true', () => {
+    (new HostValidator(TEST_HOSTS.ipv4.OK).ipv4().validate()).should.be.true();
+  });
+  it('valid ipv6 should return true', () => {
+    (new HostValidator(TEST_HOSTS.ipv6.OK).ipv6().validate()).should.be.true();
+  });
+  it('valid hostnameRFC1123 should return true', () => {
+    (new HostValidator(TEST_HOSTS.hostname.OK).hostnameRFC1123().validate()).should.be.true();
+  });
+  it('valid hostname should return true', () => {
+    (new HostValidator(TEST_HOSTS.hostname.OK).hostname().validate()).should.be.true();
+  });
 });
 
-Object.keys(TEST_HOSTS).forEach((hostType) => {
-  describe(`Determinate type of ${hostType}`,
-    itLoop(Object.keys(TEST_HOSTS), [
-      (item) => {
-        return {
-          label: hostType === item ? `should be {true} when passing a valid ${item}` : `should be {false} when passing a valid ${item}`,
-          test: () => {
-            const v = new HostValidator(TEST_HOSTS[item].OK);
-            const result = v[hostType].apply(v).determinate();
-            //if (hostType === item) {
-            return (result.validator).should.be.equals(hostType);
-            //} else {
-            //return (result).should.be.false();
-            //}
-          }
-        }
-      },
-    ]))
+describe('Validate host using specified validator: ', () => {
+  it('invalid ipv4 should return false', () => {
+    (new HostValidator(TEST_HOSTS.ipv4.KO).ipv4().validate()).should.be.false();
+  });
+  it('invalid ipv6 should return false', () => {
+    (new HostValidator(TEST_HOSTS.ipv6.KO).ipv6().validate()).should.be.false();
+  });
+  it('invalid hostnameRFC1123 should return false', () => {
+    (new HostValidator(TEST_HOSTS.hostname.KO).hostnameRFC1123().validate()).should.be.false();
+  });
+  it('invalid hostname should return false', () => {
+    (new HostValidator(TEST_HOSTS.hostname.KO).hostname().validate()).should.be.false();
+  });
+});
+
+
+describe('Determinate host validator from ', () => {
+  it('ipv4 should return ipv4', () => {
+    (new HostValidator(TEST_HOSTS.ipv4.OK).determinate().validator).should.be.equals('ipv4');
+  });
+  it('ipv6 should return ipv6', () => {
+    (new HostValidator(TEST_HOSTS.ipv6.OK).determinate().validator).should.be.equals('ipv6');
+  });
+  it('hostnameRFC1123 should return hostnameRFC1123', () => {
+    (new HostValidator(TEST_HOSTS.hostname.OK).determinate().validator).should.be.equals('hostnameRFC1123');
+  });
+  it('ipv4 should return ipv4', () => {
+    (new HostValidator(TEST_HOSTS.ipv4.OK).determinate().validator).should.be.equals('ipv4');
+  });
+  it('undeterminable should throw a {TypeError}', () => {
+    (() => { new HostValidator(TEST_HOSTS.none.KO).determinate(); }).should.throw(TypeError);
+  });
+})
+
+describe('Validate without specified validator', () => {
+  it('ipv4 should return ipv4', () => {
+    (new HostValidator(TEST_HOSTS.ipv4.OK).validate().validator).should.be.equals('ipv4');
+  });
+  it('ipv6 should return ipv6', () => {
+    (new HostValidator(TEST_HOSTS.ipv6.OK).validate().validator).should.be.equals('ipv6');
+  });
+  it('hostnameRFC1123 should return hostnameRFC1123', () => {
+    (new HostValidator(TEST_HOSTS.hostname.OK).validate().validator).should.be.equals('hostnameRFC1123');
+  });
+  it('ipv4 should return ipv4', () => {
+    (new HostValidator(TEST_HOSTS.ipv4.OK).determinate().validator).should.be.equals('ipv4');
+  });
+  it('undeterminable should throw a {TypeError}', () => {
+    (() => { new HostValidator(TEST_HOSTS.none.KO).validate() }).should.throw(TypeError);
+  });
 });

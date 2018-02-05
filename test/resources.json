@@ -7,11 +7,15 @@
     },
     "hostname": {
       "OK": "domain.tld",
-      "KO": "mydomain@foo"
+      "KO": ".none"
     },
     "ipv6": {
       "OK": "2001:0db8:0000:85a3:0000:0000:ac1f:8001 ",
       "KO": "cow:beef:surprise:meurk:0000:0000:ac1f:sausage"
+    },
+    "none": {
+      "OK": "",
+      "KO": ".meurk"
     }
   }
 }
