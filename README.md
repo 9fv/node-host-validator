@@ -127,6 +127,15 @@ about how to [validate IPv4, IPv6 and hostname](https://stackoverflow.com/questi
 
 ## <a name="history"> History
 
+### v0.1.0 (2018-02-08)
+
+* [Update dependencies to enable Greenkeeper](https://github.com/9fv/node-host-validator/pull/2)
+
+
+### v0.1.0-beta2 (2018-02-05)
+
+* Fix bug [#1]
+
 ### v0.1.0-beta1 (2018-02-02)
 
 * Fix errors and update documentation (API, README).
